@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VanillaRails</title>
+    <title>myIMDB</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <%= render "shared/cdn_assets" %> 
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><%= link_to "Movies", root_path %></li>
-        <li><%= link_to "Directors", directors_path %></li>
-        <li><%= link_to "Actors", actors_path %></li>
-        <li><%= link_to "Characters", characters_path %></li>
-      </ul>
-    </nav>
-    <%= yield %>
+  
+    <%= render "shared/navbar" %>
+
+    <div class="container">
+    
+      <%= yield %>
+
+    </div>
+
   </body>
 </html>

@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Characters</h1>
+<div class="d-flex flex-row">
+  <div class="p-1"><h2>Characters</h2></div>
+  <div class="ml-auto p-3">
+    <%= link_to 'Add New Character', new_character_path, class: "h5" %>
+  </div>
+</div>
 
-<table>
-  <thead>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
     <tr>
       <th>Name</th>
       <th>Actor</th>
@@ -27,5 +33,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Character', new_character_path %>

@@ -13,6 +13,5 @@
 class Actor < ApplicationRecord
   belongs_to :movie
 
-  has_many :characters, through: :movie, dependent: :destroy
-  has_many :movies, dependent: :destroy
+  has_many :characters, dependent: :destroy
 end

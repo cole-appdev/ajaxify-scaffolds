@@ -23,7 +23,5 @@
 class Movie < ApplicationRecord
   belongs_to :director
 
-  has_many :actors, dependent: :destroy
-  has_many :characters, through: :actors
-
+  has_many :characters, dependent: :destroy
 end

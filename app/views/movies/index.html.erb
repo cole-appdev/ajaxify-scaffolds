@@ -20,6 +20,8 @@
     </tr>
   </thead>
 
+  <%= render "movies/form", movie: Movie.new %>
+
   <tbody>
     <% @movies.each do |movie| %>
       <tr id="<%= dom_id(movie) %>">

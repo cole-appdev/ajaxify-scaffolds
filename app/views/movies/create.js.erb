@@ -1,17 +1,22 @@
 
 $(document).ready(function(){
-        
-        var title = $("#movie_title").val();
-        var year = $("#movie_year").val();
-        var director = $("#movie_director_id").val();
-        var description = $("#movie_description").val();
-        var duration = $("#movie_duration").val();
-        var markup = "<tr><td>" + title + "</td><td>" + year + "</td><td>" + director + "</td><td>" +
-        description + "</td><td>" + duration + "</td><td></td></tr>";
-        
-        //console.log(<%= @movie.id %>);
 
-        $("#movies").prepend(markup);
+        var table = document.getElementById("movies");
+        var new_row = table.insertRow(0);
+
+        var title = new_row.insertCell();
+        var year = new_row.insertCell();
+        var director = new_row.insertCell();
+        var description = new_row.insertCell();
+        var duration = new_row.insertCell();
+        var delete_button = new_row.insertCell();
+
+        title.innerHTML = $("#movie_title").val();
+        year.innerHTML = $("#movie_year").val();
+        director.innerHTML = $("#movie_director_id").val();
+        description.innerHTML = $("#movie_description").val();
+        duration.innerHTML = $("#movie_duration").val();
+        delete_button.innerHTML = "<%= j(link_to 'Destroy', @movie, method: :delete, remote: true) %>";
 
         $("#new_movie_form").trigger("reset");
     });

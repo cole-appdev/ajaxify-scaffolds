@@ -12,6 +12,7 @@
     </div>
   <% end %>
 
+
   <tr class="table-light">
     <td>
       <div class="field">
@@ -43,10 +44,11 @@
         <%= form.number_field :duration %>
       </div>
       </td>
-      <td style="text-align: center">
-      <div class="actions">
-        <%= form.submit %>
-      </div>
+      <td class="align-middle">
+        <div class="actions">
+          <%= form.submit nil, class: "btn btn-secondary btn-sm"%>
+        </div>
       </td>
   </tr>
+
 <% end %>

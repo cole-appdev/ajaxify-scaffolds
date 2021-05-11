@@ -1,23 +1,38 @@
 
 $(document).ready(function(){
 
-        var table = document.getElementById("movies");
-        var new_row = table.insertRow(0);
+  let added_movie = $("<%= j(render "movies/new_row", movie: @movie) %>");
+  added_movie.hide();
+  $("#movies").before(added_movie);
+  added_movie.slideDown();
 
-        var title = new_row.insertCell();
-        var year = new_row.insertCell();
-        var director = new_row.insertCell();
-        var description = new_row.insertCell();
-        var duration = new_row.insertCell();
-        var delete_button = new_row.insertCell();
+  // reset the form
+  $("#new_movie_form").trigger("reset");
 
-        title.innerHTML = $("#movie_title").val();
-        year.innerHTML = $("#movie_year").val();
-        director.innerHTML = $("#movie_director_id").val();
-        description.innerHTML = $("#movie_description").val();
-        duration.innerHTML = $("#movie_duration").val();
-        delete_button.innerHTML = "<%= j(link_to 'Destroy', @movie, method: :delete, remote: true) %>";
+});
+      
+  // Old code that is too JavaScript and not enough Rails
+  // Fixed in the above code
+  /*
+  let table = document.getElementById("movies");
+  let new_row = table.insertRow(0);
 
-        $("#new_movie_form").trigger("reset");
-    });
-        
+  let title = new_row.insertCell();
+  let year = new_row.insertCell();
+  let director = new_row.insertCell();
+  let description = new_row.insertCell();
+  let duration = new_row.insertCell();
+  let delete_button = new_row.insertCell();
+  delete_button.style.textAlign = "center";
+  new_row.setAttribute("id", "<%= dom_id(@movie) %>");
+
+  title.innerHTML = $("#movie_title").val();
+  year.innerHTML = $("#movie_year").val();
+  director.innerHTML = $("#movie_director_id").val();
+  description.innerHTML = $("#movie_description").val();
+  duration.innerHTML = $("#movie_duration").val();
+  delete_button.innerHTML = "<%= j(link_to 'Destroy', @movie, method: :delete, remote: true) %>";
+  */
+ 
+ 
+  

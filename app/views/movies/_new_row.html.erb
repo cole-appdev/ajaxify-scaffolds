@@ -1,0 +1,9 @@
+
+<tr id="<%= dom_id(@movie) %>">
+  <td class="align-middle"><%= @movie.title %></td>
+  <td class="align-middle"><%= @movie.year %></td>
+  <td class="align-middle"><%= @movie.director.name %></td>
+  <td class="align-middle"><%= @movie.description %></td>
+  <td class="align-middle"><%= @movie.duration %></td>
+  <td class="align-middle"><%= link_to 'Destroy', movie, method: :delete, remote: true %></td>
+</tr>

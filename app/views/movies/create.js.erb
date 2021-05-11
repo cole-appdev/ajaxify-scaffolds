@@ -1,0 +1,18 @@
+
+$(document).ready(function(){
+        
+        var title = $("#movie_title").val();
+        var year = $("#movie_year").val();
+        var director = $("#movie_director_id").val();
+        var description = $("#movie_description").val();
+        var duration = $("#movie_duration").val();
+        var markup = "<tr><td>" + title + "</td><td>" + year + "</td><td>" + director + "</td><td>" +
+        description + "</td><td>" + duration + "</td><td></td></tr>";
+        
+        //console.log(<%= @movie.id %>);
+
+        $("#movies").prepend(markup);
+
+        $("#new_movie_form").trigger("reset");
+    });
+        

@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
     # Create needed variables
     @field = params[:field]
     @movie = Movie.find(params[:id])
-    
+
     # render JS template upon click based on notes from lesson to turn table cell to field   
     # load _field_form.html.erb for the indicated :field - no new data entered yet
 
@@ -33,16 +33,6 @@ class MoviesController < ApplicationController
       format.js {render template: "movies/edit_field.js.erb"}
     end
    
-   
-
-  end
-
-  def update_field
-
-    
-    # update_field action that only updates the single parameter
-    # replace_with newly submitted data via JS
-
   end
 
   # POST /movies or /movies.json
@@ -63,10 +53,12 @@ class MoviesController < ApplicationController
 
   # PATCH/PUT /movies/1 or /movies/1.json
   def update
+
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
+        format.js {render template: "movies/update.js.erb"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }

@@ -1,0 +1,8 @@
+
+$(document).ready(function(){
+
+  let fieldEdit = $("<%= j(render "movies/field_form") %>");
+  
+  $("#<%= dom_id(@movie) %>_<%= @field %>").replaceWith(fieldEdit);
+  
+});

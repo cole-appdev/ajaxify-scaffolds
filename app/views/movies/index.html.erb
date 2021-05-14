@@ -22,10 +22,10 @@
   <tbody id="movies">
     <% @movies.each do |movie| %>
       <tr id="<%= dom_id(movie) %>">
-        <td class="align-middle"><%= movie.title %></td>
-        <td class="align-middle"><%= movie.year %></td>
-        <td class="align-middle"><%= movie.director.name %></td>
-        <td class="align-middle">
+        <td id="<%= dom_id(movie) %>_title" class="align-middle"><%= link_to movie.title, edit_field_path(movie, :field => "title"), remote: true %></td>
+        <td id="<%= dom_id(movie) %>_year"class="align-middle"><%= link_to movie.year, edit_field_path(movie, :field => "year"), remote: true %></td>
+        <td id="<%= dom_id(movie) %>_director"class="align-middle"><%= link_to movie.director.name, edit_field_path(movie, :field => "director"), remote: true %></td>
+        <td id="<%= dom_id(movie) %>_description" class="align-middle">
 
           <a class="btn btn-secondary btn-sm" data-toggle="collapse" href="#collapse_<%= dom_id(movie) %>" role="button" aria-expanded="false" aria-controls="collapse_<%= dom_id(movie) %>">
             Show Description
@@ -37,8 +37,8 @@
           </div>
     
         </td>
-        <td class="align-middle"><%= movie.duration %></td>
-        <td class="align-middle"><%= link_to 'Destroy', movie, method: :delete, remote: true %></td>
+        <td id="<%= dom_id(movie) %>_duration" class="align-middle"><%= link_to movie.duration, edit_field_path(movie, :field => "duration"), remote: true %></td>
+        <td id="<%= dom_id(movie) %>_destroy" class="align-middle"><%= link_to 'Destroy', movie, method: :delete, remote: true %></td>
       </tr>
     <% end %>
   </tbody>

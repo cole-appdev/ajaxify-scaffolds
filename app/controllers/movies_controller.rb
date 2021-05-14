@@ -19,6 +19,32 @@ class MoviesController < ApplicationController
   def edit
   end
 
+  # GET /movies/1/edit
+  def edit_field
+        
+    # Create needed variables
+    @field = params[:field]
+    @movie = Movie.find(params[:id])
+    
+    # render JS template upon click based on notes from lesson to turn table cell to field   
+    # load _field_form.html.erb for the indicated :field - no new data entered yet
+
+    respond_to do |format|
+      format.js {render template: "movies/edit_field.js.erb"}
+    end
+   
+   
+
+  end
+
+  def update_field
+
+    
+    # update_field action that only updates the single parameter
+    # replace_with newly submitted data via JS
+
+  end
+
   # POST /movies or /movies.json
   def create
     @movie = Movie.new(movie_params)

@@ -1,0 +1,11 @@
+
+$(document).ready(function(){
+
+  let changedField = "<%= @movie.previous_changes.keys[0] %>";
+  //console.log(`#<%= dom_id(@movie) %>_${changedField}`);
+  
+  $("#<%= dom_id(@movie) %>").replaceWith("<%= j(render "movies/update_field", movie: @movie) %>"); 
+
+  
+});
+
